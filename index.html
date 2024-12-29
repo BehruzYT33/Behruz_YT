@@ -3,87 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Технический перерыв - Behruz_YT</title>
+  <title>Новогоднее Расписание BEHRUZ_YT</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
-      background: #1a1a1a;
+      background: linear-gradient(45deg, #1a1a1d, #c3073f);
       color: #fff;
-      height: 100vh;
-      overflow: hidden;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      position: relative;
-    }
-
-    .content {
-      text-align: center;
-      z-index: 10;
-      animation: fadeIn 2s ease-in-out;
+      padding: 20px;
+      overflow: hidden;
     }
 
     h1 {
-      font-size: 4rem;
-      font-weight: bold;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
-      color: #FF2D95;
+      font-size: 3rem;
+      text-align: center;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
+      margin-bottom: 30px;
     }
 
-    p {
-      font-size: 1.5rem;
-      margin: 20px 0;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-    }
-
-    .button {
-      background: linear-gradient(45deg, #FF00FF, #FF1493);
-      color: #fff;
-      padding: 20px 40px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease-in-out;
-    }
-
-    .button:hover {
-      background: linear-gradient(45deg, #FF1493, #FF00FF);
-      transform: scale(1.1);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .snowflakes {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
       width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 5;
+      max-width: 600px;
+      margin-bottom: 30px;
     }
 
-    .snowflake {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: white;
-      border-radius: 50%;
-      animation: fall 10s linear infinite;
-      opacity: 0.8;
-      animation-timing-function: ease-in;
+    .day {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.2rem;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
-    @keyframes fall {
-      0% {
-        transform: translateY(-100px) translateX(0);
-      }
-      100% {
-        transform: translateY(100vh) translateX(50px);
-      }
+    .day:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .day.event {
+      background: rgba(255, 255, 0, 0.8);
+      font-weight: bold;
+      color: #000;
+    }
+
+    .schedule {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease-in-out;
+      overflow-y: auto;
+    }
+
+    .schedule h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #ffcc00;
+      margin-bottom: 20px;
+    }
+
+    .schedule p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+      text-align: center;
     }
 
     @keyframes fadeIn {
@@ -95,35 +89,89 @@
       }
     }
 
+    .snowflake {
+      position: absolute;
+      top: -10%;
+      font-size: 1.5rem;
+      color: white;
+      user-select: none;
+      animation: snow 10s linear infinite;
+    }
+
+    @keyframes snow {
+      0% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+
+    .snowflake:nth-child(odd) {
+      left: 10%;
+      animation-duration: 12s;
+    }
+
+    .snowflake:nth-child(even) {
+      left: 70%;
+      animation-duration: 15s;
+    }
+
+    .emoji {
+      font-size: 2rem;
+      margin-top: 10px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
-  <div class="snowflakes">
-    <div class="snowflake" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="snowflake" style="left: 20%; animation-delay: 1s;"></div>
-    <div class="snowflake" style="left: 30%; animation-delay: 2s;"></div>
-    <div class="snowflake" style="left: 40%; animation-delay: 3s;"></div>
-    <div class="snowflake" style="left: 50%; animation-delay: 4s;"></div>
-    <div class="snowflake" style="left: 60%; animation-delay: 5s;"></div>
-    <div class="snowflake" style="left: 70%; animation-delay: 6s;"></div>
-    <div class="snowflake" style="left: 80%; animation-delay: 7s;"></div>
-    <div class="snowflake" style="left: 90%; animation-delay: 8s;"></div>
+  <h1>Новогоднее Расписание BEHRUZ_YT</h1>
+
+  <div class="calendar">
+    <div class="day event" onclick="showEvent('31 декабря', 'Фильм: Новогодние приключения', 'Команда BEHRUZ_YT')">31</div>
+    <div class="day" onclick="noEvent()">1</div>
+    <div class="day" onclick="noEvent()">2</div>
+    <div class="day" onclick="noEvent()">3</div>
+    <div class="day" onclick="noEvent()">4</div>
+    <div class="day event" onclick="showEvent('5 января', 'Рубрика: Ответы на вопросы', 'Команда BEHRUZ_YT')">5</div>
+    <div class="day" onclick="noEvent()">6</div>
+    <div class="day" onclick="noEvent()">7</div>
+    <div class="day" onclick="noEvent()">8</div>
+    <div class="day" onclick="noEvent()">9</div>
+    <div class="day" onclick="noEvent()">10</div>
   </div>
 
-  <div class="content">
-    <h1>Компания Behruz_YT</h1>
-    <p>Сайт временно закрыт на технический перерыв. Мы скоро вернемся!</p>
-    <button class="button" id="moreBtn">Узнать больше</button>
-    <p id="infoText"></p>
+  <div class="schedule" id="schedule">
+    <h2>Расписание</h2>
+    <p>Дальше расписание будет добавляться администратором.</p>
   </div>
+
+  <!-- Снежинки -->
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❄️</div>
 
   <script>
-    document.getElementById("moreBtn").addEventListener("click", function() {
-      document.getElementById("infoText").innerHTML = "Ничего интересного, но мы работаем над улучшениями!";
-      document.getElementById("moreBtn").style.display = "none";
-    });
-  </script>
+    function showEvent(date, title, participants) {
+      const schedule = document.getElementById('schedule');
+      schedule.innerHTML = `
+        <h2>${date}</h2>
+        <p><strong>Событие:</strong> ${title}</p>
+        <p><strong>Участники:</strong> ${participants}</p>
+      `;
+    }
 
+    function noEvent() {
+      const schedule = document.getElementById('schedule');
+      schedule.innerHTML = `
+        <h2>Расписание отсутствует</h2>
+        <p>Расписание на данный день отсутствует. Попросите администратора добавить расписание.</p>
+        <div class="emoji">😔</div>
+      `;
+    }
+  </script>
 </body>
 </html>
