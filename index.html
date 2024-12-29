@@ -1,104 +1,129 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Технический перерыв - Behruz_YT</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #74b9ff, #dfe6e9);
-            color: #2d3436;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-        .container {
-            text-align: center;
-            animation: fadeIn 2s ease-in-out;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #0984e3;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        p {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-            color: #636e72;
-        }
-        .snowflake {
-            color: #ffffff;
-            font-size: 1.5rem;
-            animation: fall linear infinite;
-            position: absolute;
-        }
-        .button {
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            background: #00cec9;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
-            animation: pulse 1.5s infinite;
-        }
-        .button:hover {
-            background: #81ecec;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
-            }
-            100% {
-                box-shadow: 0 0 20px rgba(0, 206, 201, 0.9);
-            }
-        }
-        @keyframes fall {
-            from {
-                transform: translateY(-100vh) rotate(0deg);
-            }
-            to {
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Технический перерыв - Behruz_YT</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: #1a1a1a;
+      color: #fff;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .content {
+      text-align: center;
+      z-index: 10;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
+      color: #FF2D95;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+
+    .button {
+      background: linear-gradient(45deg, #FF00FF, #FF1493);
+      color: #fff;
+      padding: 20px 40px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      background: linear-gradient(45deg, #FF1493, #FF00FF);
+      transform: scale(1.1);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .snowflakes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .snowflake {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      animation: fall 10s linear infinite;
+      opacity: 0.8;
+      animation-timing-function: ease-in;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) translateX(0);
+      }
+      100% {
+        transform: translateY(100vh) translateX(50px);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Behruz_YT ❄</h1>
-        <p>Сайт временно закрыт на технический перерыв.</p>
-        <p>Ориентировочный срок завершения: <strong>2 часа</strong>.</p>
-        <button class="button" onclick="alert('Спасибо за понимание! ❄')">Обновить</button>
-    </div>
-    <script>
-        // Создание снежинок
-        for (let i = 0; i < 50; i++) {
-            let snowflake = document.createElement('div');
-            snowflake.innerHTML = '❄';
-            snowflake.classList.add('snowflake');
-            snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-            snowflake.style.animationDelay = Math.random() * 5 + 's';
-            document.body.appendChild(snowflake);
-        }
-    </script>
+
+  <div class="snowflakes">
+    <div class="snowflake" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="snowflake" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="snowflake" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="snowflake" style="left: 40%; animation-delay: 3s;"></div>
+    <div class="snowflake" style="left: 50%; animation-delay: 4s;"></div>
+    <div class="snowflake" style="left: 60%; animation-delay: 5s;"></div>
+    <div class="snowflake" style="left: 70%; animation-delay: 6s;"></div>
+    <div class="snowflake" style="left: 80%; animation-delay: 7s;"></div>
+    <div class="snowflake" style="left: 90%; animation-delay: 8s;"></div>
+  </div>
+
+  <div class="content">
+    <h1>Компания Behruz_YT</h1>
+    <p>Сайт временно закрыт на технический перерыв. Мы скоро вернемся!</p>
+    <button class="button" id="moreBtn">Узнать больше</button>
+    <p id="infoText"></p>
+  </div>
+
+  <script>
+    document.getElementById("moreBtn").addEventListener("click", function() {
+      document.getElementById("infoText").innerHTML = "Ничего интересного, но мы работаем над улучшениями!";
+      document.getElementById("moreBtn").style.display = "none";
+    });
+  </script>
+
 </body>
 </html>
