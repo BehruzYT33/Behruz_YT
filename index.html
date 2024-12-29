@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Технический перерыв - Behruz_YT</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #74b9ff, #dfe6e9);
+            color: #2d3436;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #0984e3;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: #636e72;
+        }
+        .snowflake {
+            color: #ffffff;
+            font-size: 1.5rem;
+            animation: fall linear infinite;
+            position: absolute;
+        }
+        .button {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: #00cec9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
+            animation: pulse 1.5s infinite;
+        }
+        .button:hover {
+            background: #81ecec;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 10px rgba(0, 206, 201, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(0, 206, 201, 0.9);
+            }
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Behruz_YT ❄</h1>
+        <p>Сайт временно закрыт на технический перерыв.</p>
+        <p>Ориентировочный срок завершения: <strong>2 часа</strong>.</p>
+        <button class="button" onclick="alert('Спасибо за понимание! ❄')">Обновить</button>
+    </div>
+    <script>
+        // Создание снежинок
+        for (let i = 0; i < 50; i++) {
+            let snowflake = document.createElement('div');
+            snowflake.innerHTML = '❄';
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(snowflake);
+        }
+    </script>
+</body>
+</html>
