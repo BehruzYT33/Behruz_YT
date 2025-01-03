@@ -22,7 +22,24 @@
       font-size: 3rem;
       text-align: center;
       text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      font-size: 1.5rem;
+      color: #ffcc00;
+      margin-bottom: 20px;
+      text-align: center;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
     }
 
     .calendar {
@@ -54,6 +71,21 @@
       background: rgba(255, 255, 0, 0.8);
       font-weight: bold;
       color: #000;
+    }
+
+    .day.today {
+      background: rgba(0, 123, 255, 0.8);
+      color: #fff;
+      animation: glow 1.5s infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(0, 123, 255, 1);
+      }
     }
 
     .schedule {
@@ -116,30 +148,25 @@
       left: 70%;
       animation-duration: 15s;
     }
-
-    .emoji {
-      font-size: 2rem;
-      margin-top: 10px;
-      text-align: center;
-    }
   </style>
 </head>
 <body>
 
   <h1>Новогоднее Расписание BEHRUZ_YT</h1>
+  <p class="highlight">Скоро: 5 января - Рубрика "Ответы на вопросы"!</p>
 
-  <div class="calendar">
-    <div class="day event" onclick="showEvent('31 декабря', 'Фильм: Новогодние приключения', 'Команда BEHRUZ_YT')">31</div>
-    <div class="day" onclick="noEvent()">1</div>
-    <div class="day" onclick="noEvent()">2</div>
-    <div class="day" onclick="noEvent()">3</div>
-    <div class="day" onclick="noEvent()">4</div>
-    <div class="day event" onclick="showEvent('5 января', 'Рубрика: Ответы на вопросы', 'Команда BEHRUZ_YT')">5</div>
-    <div class="day" onclick="noEvent()">6</div>
-    <div class="day" onclick="noEvent()">7</div>
-    <div class="day" onclick="noEvent()">8</div>
-    <div class="day" onclick="noEvent()">9</div>
-    <div class="day" onclick="noEvent()">10</div>
+  <div class="calendar" id="calendar">
+    <div class="day" data-date="2024-12-31">31</div>
+    <div class="day" data-date="2025-01-01">1</div>
+    <div class="day" data-date="2025-01-02">2</div>
+    <div class="day" data-date="2025-01-03">3</div>
+    <div class="day" data-date="2025-01-04">4</div>
+    <div class="day event" data-date="2025-01-05">5</div>
+    <div class="day" data-date="2025-01-06">6</div>
+    <div class="day" data-date="2025-01-07">7</div>
+    <div class="day" data-date="2025-01-08">8</div>
+    <div class="day" data-date="2025-01-09">9</div>
+    <div class="day" data-date="2025-01-10">10</div>
   </div>
 
   <div class="schedule" id="schedule">
@@ -155,23 +182,17 @@
   <div class="snowflake">❄️</div>
 
   <script>
-    function showEvent(date, title, participants) {
-      const schedule = document.getElementById('schedule');
-      schedule.innerHTML = `
-        <h2>${date}</h2>
-        <p><strong>Событие:</strong> ${title}</p>
-        <p><strong>Участники:</strong> ${participants}</p>
-      `;
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const today = new Date().toISOString().split('T')[0];
+      const days = document.querySelectorAll('.day');
 
-    function noEvent() {
-      const schedule = document.getElementById('schedule');
-      schedule.innerHTML = `
-        <h2>Расписание отсутствует</h2>
-        <p>Расписание на данный день отсутствует. Попросите администратора добавить расписание.</p>
-        <div class="emoji">😔</div>
-      `;
-    }
+      days.forEach(day => {
+        if (day.dataset.date === today) {
+          day.classList.add('today');
+        }
+      });
+    });
   </script>
 </body>
 </html>
+
