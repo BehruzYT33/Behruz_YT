@@ -22,25 +22,23 @@
       font-size: 3rem;
       text-align: center;
       text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .highlight {
-      background: linear-gradient(90deg, #ffcc00, #ff8800);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 2rem;
-      font-weight: bold;
+      font-size: 1.5rem;
+      color: #ffcc00;
+      margin-bottom: 20px;
       text-align: center;
-      animation: pulse 1.5s infinite;
+      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0%, 100% {
-        opacity: 1;
+        transform: scale(1);
       }
       50% {
-        opacity: 0.5;
+        transform: scale(1.1);
       }
     }
 
@@ -76,17 +74,17 @@
     }
 
     .day.today {
-      background: rgba(0, 0, 255, 0.8);
+      background: rgba(0, 123, 255, 0.8);
       color: #fff;
-      animation: glow 1s infinite alternate;
+      animation: glow 1.5s infinite;
     }
 
     @keyframes glow {
-      from {
-        box-shadow: 0 0 10px rgba(0, 0, 255, 0.6);
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
       }
-      to {
-        box-shadow: 0 0 20px rgba(0, 0, 255, 1);
+      50% {
+        box-shadow: 0 0 20px rgba(0, 123, 255, 1);
       }
     }
 
@@ -155,18 +153,45 @@
 <body>
 
   <h1>Новогоднее Расписание BEHRUZ_YT</h1>
-
-  <div class="highlight">Скоро: 31 декабря - Фильм "Новогодние приключения"</div>
+  <p class="highlight">Скоро: 5 января - Рубрика "Ответы на вопросы"!</p>
 
   <div class="calendar" id="calendar">
-    <div class="day" data-date="30"></div>
-    <div class="day today">31</div>
-    <div class="day">1</div>
-    <div class="day">2</div>
-    <div class="day">3</div>
-    <div class="day">4</div>
-    <div class="day">5</div>
+    <div class="day" data-date="2024-12-31">31</div>
+    <div class="day" data-date="2025-01-01">1</div>
+    <div class="day" data-date="2025-01-02">2</div>
+    <div class="day" data-date="2025-01-03">3</div>
+    <div class="day" data-date="2025-01-04">4</div>
+    <div class="day event" data-date="2025-01-05">5</div>
+    <div class="day" data-date="2025-01-06">6</div>
+    <div class="day" data-date="2025-01-07">7</div>
+    <div class="day" data-date="2025-01-08">8</div>
+    <div class="day" data-date="2025-01-09">9</div>
+    <div class="day" data-date="2025-01-10">10</div>
   </div>
-  
+
+  <div class="schedule" id="schedule">
+    <h2>Расписание</h2>
+    <p>Дальше расписание будет добавляться администратором.</p>
+  </div>
+
+  <!-- Снежинки -->
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❄️</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const today = new Date().toISOString().split('T')[0];
+      const days = document.querySelectorAll('.day');
+
+      days.forEach(day => {
+        if (day.dataset.date === today) {
+          day.classList.add('today');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
